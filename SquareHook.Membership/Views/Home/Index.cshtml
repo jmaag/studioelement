@@ -1,0 +1,328 @@
+﻿@model SquareHook.Membership.Data.Models.Client
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section title {    
+    <h3 class="title">
+        <i class="icon-dashboard"></i>
+        @Model.Title
+    </h3>
+    <h5>
+        <span></span>
+    </h5>
+}
+
+@section stats {
+<ul class="list-inline pull-right sparkline-box">
+    <li class="sparkline-row">
+        <h4 class="green review-total"><span>Total Reviews</span></h4>
+    </li>
+
+    <li class="sparkline-row">
+        <h4 class="red review-recent-total"><span>Recent Reviews</span></h4>
+    </li>
+</ul>
+}
+
+@section breadcrumbs {
+<div id="breadcrumbs">
+    <div class="breadcrumb-button blue">
+        <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+    <div class="breadcrumb-button">
+        <span class="breadcrumb-label">
+        <i class="icon-dashboard"></i> Dashboard
+        </span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+
+</div>
+}
+
+<div class="row">
+
+  <div class="col-md-8">
+    <div class="box">
+      <div class="box-header">
+        <div class="title">Overall Satisfaction</div>
+        <ul class="box-toolbar">
+            <li>start: <input class="datepicker" value="@DateTime.Now.AddDays(-7).ToShortDateString()" id="startDate" type="text" /></li>
+            <li>end: <input class="datepicker" value="@DateTime.Now.ToShortDateString()" id="endDate" type="text" /></li>
+            <li><button type="button" class="updateRangeBtn btn btn-info">Update</button></li>
+        </ul>
+      </div>
+
+      <div class="box-content padded">
+        <div class="sine-chart" id="overall-chart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="box">
+      <div class="box-header">
+        <div class="title"># of Surveys</div>
+      </div>
+
+      <div class="box-content padded">
+        <div class="sine-chart" id="surveyCount-chart"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="box">
+      <div class="box-header">
+        <div class="title">Meal Satisfaction</div>
+      </div>
+
+      <div class="box-content padded">
+        <div class="sine-chart" id="meal-chart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="box">
+      <div class="box-header">
+        <div class="title">Service Satisfaction</div>
+      </div>
+
+      <div class="box-content padded">
+        <div class="sine-chart" id="service-chart"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="box">
+      <div class="box-header">
+        <span class="title">Alerts</span>
+        <ul class="box-toolbar">
+        </ul>
+      </div>
+      <div class="box-content scrollable alerts-section" style="height: 552px; overflow-y: auto">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="box">
+      <div class="box-header">
+        <span class="title">Recent Comments</span>
+        <ul class="box-toolbar">
+          <!--<li><span class="label label-blue">178</span></li>-->
+        </ul>
+      </div>
+      <div class="box-content scrollable comments-section" style="height: 552px; overflow-y: auto">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reviewDetails">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Review Details</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+@section scripts {
+<script type="text/html" id="commentTemplate">
+{{#reviews}}
+{{#Comments}}
+<div class="box-section news with-icons">
+  <div class="avatar blue"><i class="icon-ok icon-2x"></i></div>
+  <div class="news-time">
+    <span>{{Day}}</span> {{Month}}
+  </div>
+  <div class="news-content">
+    <div class="news-text">
+      {{Comments}}
+    </div>
+  </div>
+</div>
+{{/Comments}}
+{{/reviews}}
+</script>
+
+<script type="text/html" id="alertTemplate">
+{{#alerts}}
+<div class="box-section news with-icons">
+  <div class="avatar purple"><i class="icon-remove icon-2x"></i></div>
+  <div class="news-time">
+    <span>{{Day}}</span> {{Month}}
+  </div>
+  <div class="news-content">
+    <div class="news-text">
+      <a class="alert-detail" data-url="@Url.Action("Details", new { area = "Settings", controller = "Reviews" })/{{ReviewIDToString}}">{{Comments}} - {{OverallScore}}</a>
+    </div>
+  </div>
+</div>
+{{/alerts}}
+</script>
+
+<script type="text/html" id="detailsTemplate">
+    <div>
+        <label>Date</label>
+        {{CreateDate}}
+    </div>
+    <div>
+        <label>Score</label>
+        {{OverallScore}}
+    </div>
+    <div>
+        <label>Comments</label>
+        {{Comments}}
+    </div>
+    <div>
+        <label>Email</label>
+        {{Email}}
+    </div>
+    <div>
+        <label>IP Address</label>
+        {{RemoteIP}}
+    </div>      
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-normal">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#Answers}}
+            <tr>
+                <td>{{{Title}}}</td>
+                <td class="star-review">{{{StarValue}}}</td>
+            </tr>
+            {{/Answers}}
+        </tbody>
+    </table>
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+<script type="text/javascript" src="/Scripts/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    var tt;
+
+    $(function () {
+        loadChartData($("#startDate").val(), $("#endDate").val());
+
+        $('.datepicker').datepicker({ format: "yyyy-mm-dd" }).on('changeDate', function (ev) {
+            $(this).blur();
+            $(this).datepicker('hide');
+        });
+
+        $(".updateRangeBtn").click(function() {
+            loadChartData($("#startDate").val(), $("#endDate").val());
+        });
+                
+        tt = document.createElement('div'),
+            leftOffset = -($('html').css('padding-left').replace('px', '') + $('body').css('margin-left').replace('px', '')),
+            topOffset = -32;
+        tt.className = 'ex-tooltip';
+        document.body.appendChild(tt);
+
+        $(".alerts-section").on("click", "a.alert-detail", loadReview);
+    });
+
+    function loadReview(e) {
+        var url = $(this).attr("data-url");
+        $.post(url, null, function (results) {
+            if (results.success) {
+                var template = $("#detailsTemplate").html();
+                var output = Mustache.render(template, results.result);
+                $("#reviewDetails .modal-body").html(output);
+                $('#reviewDetails').modal('show');
+            }
+        });
+
+        e.preventDefault();
+        return false;
+    };
+
+    function loadChartData(start, end) {
+        var data = { start: start, end: end };
+
+        $.post("@Url.Action("Overview", new { area = "API", controller = "Reporting" })", data, function (result) {
+            if (result.success) {
+                $(".review-total").html("<span>Total Reviews</span>" + result.total);
+                $(".review-recent-total").html("<span>Recent Reviews</span>" + result.reviews.length);
+                
+                var template = $("#commentTemplate").html();
+                var output = Mustache.render(template, result);
+                $(".comments-section").html(output);
+
+                var alertTemplate = $("#alertTemplate").html();
+                var alertOutput = Mustache.render(alertTemplate, result);
+                $(".alerts-section").html(alertOutput);
+
+                addChart("#overall-chart", ".main.l1", result.overall, "line-dotted");
+                addChart("#meal-chart", ".main.l2", result.meal, "line-dotted");
+                addChart("#service-chart", ".main.l3", result.service, "line-dotted");
+                addChart("#surveyCount-chart", ".main.l4", result.count, "bar");
+
+            }
+        });
+    };
+
+    function addChart(id, style, results, type) {
+        var data = {
+            "xScale":"ordinal",
+            "comp":[],
+            "main":[
+                {
+                    "className":style,
+                    "data": results
+                }
+            ],
+            "type":type,
+            "yScale":"linear"
+        }
+
+        if(type != "bar") {
+            data.yMin = 0;
+            data.yMax = 5;
+        }
+
+        if ($(id).length > 0) {
+            chart = new xChart('bar', data, id, {
+                axisPaddingTop: 10,
+                paddingLeft: 30,
+                dataFormatX: function (x) { return new Date(x); },
+                tickFormatX: function (x) { 
+                    return d3.time.format('%Y-%m-%d')(x); 
+                },
+                tickFormatY: function (y) {
+                    if(type == "bar") { return d3.round(y, 0); }
+                    return d3.round(y, 1);
+                },
+                mouseover: function (d, i) {
+                    var pos = $(this).offset();
+                    $(tt).html("<strong>" + d3.time.format('%A, %b %d')(d.x) + ':</strong> ' + d3.round(d.y, 2))
+                        .css({top: topOffset + pos.top, left: pos.left + leftOffset})
+                        .show();
+                },
+                mouseout: function (x) { $(tt).hide(); }
+            });
+        }
+    };
+</script>
+}

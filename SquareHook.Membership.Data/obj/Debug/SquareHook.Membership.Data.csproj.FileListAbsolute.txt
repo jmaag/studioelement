@@ -1,0 +1,9 @@
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\obj\Debug\SquareHook.Membership.Data.csprojResolveAssemblyReference.cache
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\bin\Debug\SquareHook.Membership.Data.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\bin\Debug\SquareHook.Membership.Data.pdb
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\bin\Debug\MongoDB.Bson.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\bin\Debug\MongoDB.Driver.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\bin\Debug\MongoDB.Bson.xml
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\bin\Debug\MongoDB.Driver.xml
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\obj\Debug\SquareHook.Membership.Data.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Data\obj\Debug\SquareHook.Membership.Data.pdb

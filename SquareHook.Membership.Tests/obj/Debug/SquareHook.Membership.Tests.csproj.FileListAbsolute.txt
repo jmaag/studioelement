@@ -1,0 +1,14 @@
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\obj\Debug\SquareHook.Membership.Tests.csprojResolveAssemblyReference.cache
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\SquareHook.Membership.Tests.dll.config
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\SquareHook.Membership.Tests.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\SquareHook.Membership.Tests.pdb
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\SquareHook.Membership.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\SquareHook.Membership.Data.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\MongoDB.Bson.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\MongoDB.Driver.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\SquareHook.Membership.pdb
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\SquareHook.Membership.Data.pdb
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\MongoDB.Bson.xml
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\bin\Debug\MongoDB.Driver.xml
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\obj\Debug\SquareHook.Membership.Tests.dll
+C:\Code\SquareHook.Membership\SquareHook.Membership.Tests\obj\Debug\SquareHook.Membership.Tests.pdb
