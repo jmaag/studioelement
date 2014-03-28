@@ -13,3 +13,10 @@ C:\Code\SquareHook.Membership\SquareHook.Membership\bin\MongoDB.Bson.xml
 C:\Code\SquareHook.Membership\SquareHook.Membership\bin\MongoDB.Driver.xml
 C:\Code\SquareHook.Membership\SquareHook.Membership\obj\Debug\SquareHook.Membership.dll
 C:\Code\SquareHook.Membership\SquareHook.Membership\obj\Debug\SquareHook.Membership.pdb
+E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\obj\Debug\SquareHook.Membership.csprojResolveAssemblyReference.cache
+E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\obj\Debug\SquareHook.Membership.dll
+E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\bin\SquareHook.Membership.dll
+E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\bin\SquareHook.Membership.pdb
+E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\bin\EntityFramework.dll
+E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\bin\EntityFramework.xml
+E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\obj\Debug\SquareHook.Membership.pdb

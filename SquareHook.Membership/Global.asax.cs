@@ -31,9 +31,6 @@ namespace SquareHook.Membership
 
         protected void Application_Start()
         {
-            // added the binder for the mongo db object id
-            ModelBinders.Binders.Add(typeof(MongoDB.Bson.ObjectId), new SquareHook.Membership.Models.ObjectIdBinder());
-
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

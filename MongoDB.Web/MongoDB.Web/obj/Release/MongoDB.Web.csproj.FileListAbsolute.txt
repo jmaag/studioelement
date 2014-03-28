@@ -1,9 +1,0 @@
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\bin\Release\MongoDB.Web.dll
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\bin\Release\MongoDB.Web.pdb
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\bin\Release\MongoDB.Bson.dll
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\bin\Release\MongoDB.Driver.dll
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\bin\Release\MongoDB.Bson.xml
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\bin\Release\MongoDB.Driver.xml
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\obj\Release\ResolveAssemblyReference.cache
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\obj\Release\MongoDB.Web.dll
-C:\Code\LeulyWeb\MongoDB.Web\MongoDB.Web\obj\Release\MongoDB.Web.pdb

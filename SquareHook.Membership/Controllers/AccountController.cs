@@ -64,15 +64,15 @@ namespace SquareHook.Membership.Controllers
         //
         // GET: /Account/Register
 
-        public ActionResult Register()
+        /*public ActionResult Register()
         {
             return View();
-        }
+        }*/
 
         //
         // POST: /Account/Register
 
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
@@ -83,7 +83,7 @@ namespace SquareHook.Membership.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -94,7 +94,7 @@ namespace SquareHook.Membership.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
-        }
+        }*/
 
         //
         // GET: /Account/ChangePassword

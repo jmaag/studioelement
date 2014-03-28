@@ -8,14 +8,13 @@ namespace SquareHook.Membership.Controllers
 {
     public class HomeController : ApplicationController
     {
+        [Authorize]
         public ActionResult Index()
         {
-            var client = new SquareHook.Membership.Data.Models.Client();
-
-            return View(client);
+            return View();
         }
 
-        public ActionResult About()
+        public ActionResult Front()
         {
             return View();
         }

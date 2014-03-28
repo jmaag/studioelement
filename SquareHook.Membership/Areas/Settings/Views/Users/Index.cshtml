@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_LayoutCoreAdmin.cshtml";
+}
+
+@section title {    
+    <h3 class="title">
+        <i class="icon-users"></i>
+        Users
+    </h3>
+    <h5>
+        <span>
+            Manage Users
+        </span>
+    </h5>
+}
+
+@section breadcrumbs {
+<div id="breadcrumbs">
+    <div class="breadcrumb-button blue">
+        <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+
+    <div class="breadcrumb-button">
+        <span class="breadcrumb-label">
+        <i class="icon-user"></i> Users
+        </span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+</div>
+}
+
+<div class="box">
+  <div class="box-header">
+    <span class="title">Users</span>
+    <ul class="box-toolbar">
+      <li><a href="@Url.Action("New")" class="btn btn-info">New</a></li>
+    </ul>
+  </div>
+  <div class="box-content">
+    <table class="table table-normal data-table">
+        <thead>
+            <tr>
+                <th style="width: 1%;"></th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Created</th>
+                <th>Last Activity</th>
+                <th style="width: 1%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="6"> Loading</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="6">
+                    <form class="form-inline table-search pull-left">
+                        <input type="text" class="" id="tableSearch" />
+                        <button type="submit" class="btn btn-info" id="tableSearchBtn">Search</button>
+                    </form>
+                    <div class="pagination pull-right alternate">
+                    </div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+  </div>
+</div>
+
+@section scripts {
+<script type="text/html" id="tableTemplate">
+{{#results}}
+    <tr id="{{UserName}}">
+        <td><a href="@Url.Action("Details")/{{UserId}}" class="btn btn-info">Edit</a></td>
+        <td>{{UserName}}</td>
+        <td>{{Email}}</td>
+        <td class="center">{{CreateDate}}</td>
+        <td class="center">{{LastActivityDate}}</td>
+        <td><a href="@Url.Action("Delete")/{{UserName}}" class="btn btn-danger delete">Delete</a></td>
+    </tr>
+{{/results}}
+</script>
+<script src="/Scripts/mustache.js" type="text/javascript" language="javascript"></script>
+<script src="/Scripts/jquery.timeago.js" type="text/javascript" language="javascript"></script>
+<script src="@Url.Content("~/Scripts/PagingSearch.js")" type="text/javascript" language="javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        Leuly.PagingSearch.Initialize("@Url.Action("GetUsers")", "#tableTemplate");
+    });
+</script>
+}

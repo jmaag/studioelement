@@ -1,55 +1,40 @@
 ﻿
   <ul class="nav navbar-collapse collapse navbar-collapse-primary">
-        <li class="active">
+        <li class="">
           <span class="glow"></span>
           <a href="/">
               <i class="icon-dashboard icon-2x"></i>
               <span>Dashboard</span>
           </a>
         </li>
-
         <li class="">
           <span class="glow"></span>
-          <a href="@Url.Action("Index", new { Controller = "Reviews", area = "Settings" })">
-              <i class="icon-inbox icon-2x"></i>
-              <span>Reviews</span>
+          <a href="@Url.Action("Index", new { Controller = "Career", area = "Settings" })">
+              <i class="fa-dollar icon-2x"></i>
+              <span>Careers</span>
           </a>
         </li>
-
         <li class="">
           <span class="glow"></span>
-          <a href="@Url.Action("Index", new { Controller = "Surveys", area = "Settings" })">
-              <i class="icon-edit icon-2x"></i>
-              <span>Surveys</span>
+          <a href="@Url.Action("Index", new { Controller = "Certification", area = "Settings" })">
+              <i class="icon-heart icon-2x"></i>
+              <span>Certifications</span>
           </a>
         </li>
-
         <li class="">
           <span class="glow"></span>
-          <a href="@Url.Action("Details", new { Controller = "Customers", area = "Settings" })">
-              <i class="icon-coffee icon-2x"></i>
-              <span>My Restaurant</span>
+          <a href="@Url.Action("Index", new { Controller = "Provider", area = "Settings" })">
+              <i class="fa-rocket icon-2x"></i>
+              <span>Providers</span>
           </a>
         </li>
-
-        @if (ViewBag.IsAdmin)
-        {
         <li class="">
           <span class="glow"></span>
-          <a href="@Url.Action("Index", new { controller = "Import", area = "Settings"  })">
-              <i class="icon-download-alt icon-2x"></i>
-              <span>Import</span>
+          <a href="@Url.Action("Index", new { Controller = "Level", area = "Settings" })">
+              <i class="fa-level-down icon-2x"></i>
+              <span>Levels</span>
           </a>
         </li>
-
-        <li class="">
-          <span class="glow"></span>
-          <a href="@Url.Action("Index", new { Controller = "Customers", area = "Settings" })">
-              <i class="icon-coffee icon-2x"></i>
-              <span>Restaurants</span>
-          </a>
-        </li>
-
         <li class="">
           <span class="glow"></span>
           <a href="@Url.Action("Index", new { Controller = "Users", area = "Settings" })">
@@ -57,5 +42,4 @@
               <span>Users</span>
           </a>
         </li>
-        }
   </ul>

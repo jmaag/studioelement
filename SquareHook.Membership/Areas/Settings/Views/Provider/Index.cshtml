@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "Providers";
+    Layout = "~/Views/Shared/_LayoutCoreAdmin.cshtml";
+}
+
+@section title {    
+    <h3 class="title">
+        <i class="fa fa-rocket"></i>
+        Providers
+    </h3>
+    <h5>
+        <span></span>
+    </h5>
+}
+
+@section breadcrumbs {
+<div id="breadcrumbs">
+    <div class="breadcrumb-button blue">
+        <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+    <div class="breadcrumb-button">
+        <span class="breadcrumb-label">
+        <i class="fa fa-rocket"></i> Providers
+        </span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+
+</div>
+}
+
+<div class="box">
+    <div class="box-header">
+    <span class="title"> Add Provider</span>
+    </div>
+
+    <div class="box-content">
+
+    @using(Html.BeginForm("New", "Provider", FormMethod.Post, new { @class = "form-inline fill-up validatable new-form" })) {
+        <div class="padded">
+            <div class="form-group">
+                @Html.TextBox("Name", null, new Dictionary<string, object> { 
+                    { "class", "validate[required]" },
+                    { "data-prompt-position", "topLeft" },
+                    { "placeholder", "Name" }
+                })
+            </div>
+                <button type="submit" class="btn btn-blue">Add</button>
+        </div>
+    }
+
+    </div>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <span class="title">Providers</span>
+  </div>
+  <div class="box-content">
+    <table class="table table-normal data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th style="width: 1%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="3"> Loading</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3">
+                    <form class="form-inline table-search pull-left">
+                        <input type="text" class="" id="tableSearch" />
+                        <button type="submit" class="btn btn-info" id="tableSearchBtn">Search</button>
+                    </form>
+                    <div class="pagination pull-right alternate">
+                    </div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+  </div>
+</div>
+
+
+
+<script id="tableTemplate" type="text/html">
+    {{#results}}
+    <tr id="{{ProviderID}}">
+        <td>{{ProviderID}}</td>
+        <td>{{Name}}</td>
+        <td><a href="@Url.Action("Delete")/{{ProviderID}}" class="btn btn-danger delete">Delete</a></td>
+    </tr>
+    {{/results}}
+</script>
+
+@section scripts {
+
+<script src="/Scripts/mustache.js" type="text/javascript" language="javascript"></script>
+<script src="/Scripts/jquery.timeago.js" type="text/javascript" language="javascript"></script>
+<script src="@Url.Content("~/Scripts/PagingSearch.js")" type="text/javascript" language="javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        Leuly.PagingSearch.Initialize("@Url.Action("GetProviders")", "#tableTemplate");
+
+        $(".new-form").submit(function(e) {
+            var newForm = $(this);
+            if(newForm.validationEngine('validate')) {
+                var data = {
+                    Name: newForm.find("#Name").val()
+                };
+                $.post(newForm.attr("action"), data, function(result) {
+                    if(result.success) {
+                        Leuly.PagingSearch.Insert(result.results);
+                    }
+                });
+            }
+
+            e.preventDefault();
+        });
+    });
+</script>
+
+}

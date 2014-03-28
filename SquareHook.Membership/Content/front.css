@@ -1,0 +1,271 @@
+﻿.sh-header-left, .sh-header-right 
+{
+    color: #fff;
+    background-color: #ED3022;
+    font-weight: 100;
+    font-size: 1em;
+    padding: 5px 10px;
+}
+
+.sh-header-left 
+{
+    border-top-left-radius: 10px;
+}
+
+.sh-header-right 
+{
+    border-top-right-radius: 10px;
+}
+
+/* general styling */
+
+.sh-widget 
+{
+    color: #4d4d4d;
+}
+
+.sh-widget a 
+{
+    color: #ED3022;
+}
+
+/* left column */
+
+.sh-career-list 
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sh-career-list li 
+{
+    background: url('/Content/img/briefcase.png') 5px 5px no-repeat;
+    margin-bottom: 10px;
+    padding: 5px 0px 5px 35px;
+    min-height: 37px;
+    border-bottom-left-radius: 10px;
+}
+
+.sh-career-list li a
+{
+    display: block;
+    color: #4d4d4d;   
+    font-size: 19px;
+    font-weight: 100;
+}
+
+.sh-career-list li:hover, .sh-career-list li.active
+{
+    background: #E5E5E5 url('/Content/img/briefcase-red.png') 5px 5px no-repeat;
+    margin-bottom: 10px;
+    padding-left: 35px;    
+}
+
+.sh-career-list li:hover a,  .sh-career-list li.active a 
+{
+    color: #DD231B;
+    text-decoration: none;
+}
+
+/* provider list */
+
+.sh-provider-list 
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sh-provider-list li 
+{
+    margin-bottom: 5px;
+}
+
+/* details section */
+
+.sh-details 
+{
+    background-color: #e5e5e5;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.sh-details .header 
+{
+    border-bottom: 1px solid #adadad;
+    padding-bottom: 1em;
+}
+
+.sh-details .header > h2 
+{
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    font-size: 42px;
+    line-height: 36px;
+    color: #DD231B;
+}
+
+.sh-details .header > .details 
+{
+    padding-top: 1em;
+}
+
+/* level details */
+
+.sh-details .level-details 
+{
+    background-color: #dddddd;
+    border-top-right-radius: 10px;
+    width: 60%;
+    min-height: 45px;
+}
+
+.sh-details .level-details > h3 
+{
+    padding: 10px;
+    color: #FFF;
+    position: relative;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+} 
+
+.sh-details .level-details > h3 > span.fa 
+{
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.sh-details .level-details .level-index 
+{
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    color: #000;
+    font-size: 24px;
+    font-weight: 100;
+    background-color: #FFF;
+    padding: 3px 10px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+} 
+
+.sh-details .level-details ul 
+{
+    display: none;
+    margin: 0;
+}
+
+.sh-details .level-details ul li > a 
+{
+    color: #4d4d4d;
+    font-size: 16px;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+.sh-details .level-details ul li:hover > a 
+{
+    color: #fff;
+}
+
+.sh-details .level-details ul li:hover 
+{
+    color: #FFF;
+}
+
+/* level details colors */
+
+.sh-details .level-details.beginner-novice 
+{
+    background-color: #F5A81C;
+    border-top-left-radius: 10px;
+}
+
+.sh-details .level-details.beginner-novice .level-index 
+{
+    color: #F5A81C;
+}
+
+.sh-details .level-details.intermediate 
+{
+    background-color: #61A609;
+    margin-left:30px;
+}
+
+.sh-details .level-details.intermediate .level-index 
+{
+    color: #61A609;
+}
+
+.sh-details .level-details.advanced 
+{
+    background-color: #0090B8;
+    margin-left: 60px;
+}
+
+.sh-details .level-details.advanced .level-index 
+{
+    color: #0090B8;
+}
+
+.sh-details .level-details.specialist 
+{
+    background-color: #B14EC4;
+    margin-left: 90px;
+}
+
+.sh-details .level-details.specialist .level-index 
+{
+    color: #B14EC4;
+}
+
+.sh-details .level-details.expert 
+{
+    background-color: #F16C22;
+    border-bottom-right-radius: 10px;
+    margin-left: 120px;
+}
+
+.sh-details .level-details.expert .level-index 
+{
+    color: #F16C22;
+}
+
+/* override the color of the popover */
+
+.popover 
+{
+    background-color: rgba(0,0,0,0.6);
+    color: #FFF;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    
+}
+
+.popover-title 
+{
+    background-color: transparent;
+    padding-bottom: 0;
+    color: #fff;
+    border-bottom: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.popover span
+{
+    font-size: 16px;
+}
+
+.popover.right > .arrow {
+    border-right-color: rgba(0,0,0,0.35);
+}
+.popover.right > .arrow:after {
+    border-right-color: rgba(0,0,0,0.35);
+}

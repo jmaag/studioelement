@@ -1,0 +1,137 @@
+﻿@model SquareHook.Membership.Areas.Settings.Models.UserModel
+
+@{
+    ViewBag.Title = "User Details";
+    Layout = "~/Views/Shared/_LayoutCoreAdmin.cshtml";
+}
+
+@section title {    
+    <h3 class="title">
+        <i class="icon-users"></i>
+        User
+    </h3>
+    <h5>
+        <span>
+            Manage Users
+        </span>
+    </h5>
+}
+
+@section breadcrumbs {
+<div id="breadcrumbs">
+    <div class="breadcrumb-button blue">
+        <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+
+    <div class="breadcrumb-button">
+        <span class="breadcrumb-label">
+        <i class="icon-user"></i> Users
+        </span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+</div>
+}
+
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="box">
+      <div class="box-header">
+        <span class="title"><i class="icon-user"></i> User Details</span>
+      </div>
+
+      <div class="box-content">
+
+        @using(Html.BeginForm("Details", "Users", FormMethod.Post, new { @class = "form-horizontal fill-up validatable" })) {
+
+          <div class="padded">
+            @Html.ValidationSummary()
+
+            @Html.HiddenFor(m => m.UserID)
+
+            <ul class="separate-sections">
+                <li class="input">
+                    <label for="Name">Username</label>
+                    @Html.TextBoxFor(m => m.Username, new Dictionary<string, object> { 
+                        { "class", "validate[required]" },
+                        { "data-prompt-position", "topLeft" },
+                        { "placeholder", "Name" }
+                    })
+                    @Html.ValidationMessageFor(m => m.Username)
+                </li>
+                <li class="input">
+                    <label for="Title">Email</label>
+                    @Html.TextBoxFor(m => m.Email, new Dictionary<string, object> { 
+                        { "class", "validate[required]" },
+                        { "data-prompt-position", "topLeft" },
+                        { "placeholder", "Title" }
+                    })
+                    @Html.ValidationMessageFor(m => m.Email)
+                </li>
+            </ul>
+
+            <ul class="separate-sections">
+                <li class="input">
+                    <label for="Name">Old Password</label>
+                    @Html.PasswordFor(m => m.OldPassword)
+                    @Html.ValidationMessageFor(m => m.OldPassword)
+                </li>
+                <li class="input">
+                    <label for="Title">New Password</label>
+                    @Html.PasswordFor(m => m.NewPassword)
+                    @Html.ValidationMessageFor(m => m.NewPassword)
+                </li>
+                <li class="input">
+                    <label for="Title">Confirm Password</label>
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </li>
+            </ul>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Created</label>
+                    @Html.DisplayFor(m => m.CreationDate)
+                </div>
+                <div class="col-md-3">
+                    <label>Last Activity</label>
+                    @Html.DisplayFor(m => m.LastActivityDate)
+                </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Save changes</button>
+            <button type="button" class="btn btn-default">Cancel</button>
+          </div>
+        }
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+@section scripts {
+<script type="text/html" id="userTemplate">
+    {{#users}}
+        <option value="{{UserID}}" {{#Selected}}selected="selected"{{/Selected}}>{{Name}}</option>
+    {{/users}}
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        /*$("#ID").val("0");
+
+        $.post("@Url.Action("GetUsers")", { id: $("#ClientID").val() }, function(result) {
+        if(result.success) {
+        var template = $("#userTemplate").html();
+
+        var output = Mustache.render(template, result);
+        $("#UserID").append(output);
+        }
+        });*/
+    });
+</script>
+}

@@ -1,0 +1,145 @@
+﻿@model SquareHook.Membership.Areas.Settings.Models.CareerModel
+
+@{
+    ViewBag.Title = "Career Details";
+    Layout = "~/Views/Shared/_LayoutCoreAdmin.cshtml";
+}
+
+@section title {    
+    <h3 class="title">
+        <i class="fa fa-dollar"></i>
+        Career
+    </h3>
+    <h5>
+        <span>
+            Manage Careers
+        </span>
+    </h5>
+}
+
+@section breadcrumbs {
+<div id="breadcrumbs">
+    <div class="breadcrumb-button blue">
+        <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+
+    <div class="breadcrumb-button">
+        <span class="breadcrumb-label">
+        <i class="fa fa-dollar"></i> Careers
+        </span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+</div>
+}
+
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="box">
+      <div class="box-header">
+        <span class="title"> Career Details</span>
+      </div>
+
+      <div class="box-content">
+
+        @using(Html.BeginForm("New", "Career", FormMethod.Post, new { @class = "form-horizontal fill-up validatable" })) {
+
+          <div class="padded">
+            @Html.ValidationSummary()
+
+            @Html.HiddenFor(m => m.CareerID)
+
+            <ul class="separate-sections">
+                <li class="input">
+                    <label for="Name">Name</label>
+                    @Html.TextBoxFor(m => m.Name, new Dictionary<string, object> { 
+                        { "class", "validate[required]" },
+                        { "data-prompt-position", "topLeft" },
+                        { "placeholder", "Name" }
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Display Order</label>
+                    @Html.TextBoxFor(m => m.DisplayOrder, new Dictionary<string, object> { 
+                        { "placeholder", "Order" }
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Average Salary</label>
+                    @Html.TextBoxFor(m => m.AverageSalary, new Dictionary<string, object> { 
+                        { "class", "validate[required]" },
+                        { "data-prompt-position", "topLeft" },
+                        { "placeholder", "e.g. $103,314" }
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Current Demand</label>
+                    @Html.TextBoxFor(m => m.Demand, new Dictionary<string, object> { 
+                        { "class", "validate[required]" },
+                        { "data-prompt-position", "topLeft" },
+                        { "placeholder", "e.g. Low, Medium, High, N/A" }
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Level 1 Instruction</label>
+                    @Html.TextAreaFor(m => m.Level1Instructions, new Dictionary<string, object> { 
+                        { "class", "validate[required]" },
+                        { "data-prompt-position", "topLeft" }
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Level 2 Instruction</label>
+                    @Html.TextAreaFor(m => m.Level2Instructions, new Dictionary<string, object> { 
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Level 3 Instruction</label>
+                    @Html.TextAreaFor(m => m.Level3Instructions, new Dictionary<string, object> {
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Level 4 Instruction</label>
+                    @Html.TextAreaFor(m => m.Level4Instructions, new Dictionary<string, object> { 
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Level 5 Instruction</label>
+                    @Html.TextAreaFor(m => m.Level5Instructions, new Dictionary<string, object> { 
+                    })
+                </li>
+                <li class="input">
+                    <label for="Name">Certifications</label>
+                    @Html.ListBoxFor(m => m.SelectedCerts, Model.Certifications, new { @class = "chzn-select" })
+                </li>
+            </ul>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Save changes</button>
+            <a href="@Url.Action("Index")" class="btn btn-default">Cancel</a>
+          </div>
+        }
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+@section scripts {
+<script type="text/javascript">
+    $(function () {
+        /*$("#ID").val("0");
+
+        $.post("@Url.Action("GetUsers")", { id: $("#ClientID").val() }, function(result) {
+        if(result.success) {
+        var template = $("#userTemplate").html();
+
+        var output = Mustache.render(template, result);
+        $("#UserID").append(output);
+        }
+        });*/
+    });
+</script>
+}

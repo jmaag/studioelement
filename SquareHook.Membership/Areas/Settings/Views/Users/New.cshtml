@@ -1,0 +1,96 @@
+﻿@model SquareHook.Membership.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Add User";
+    Layout = "~/Views/Shared/_LayoutCoreAdmin.cshtml";
+}
+
+@section title {    
+    <h3 class="title">
+        <i class="icon-users"></i>
+        User
+    </h3>
+    <h5>
+        <span>
+            Manage Users
+        </span>
+    </h5>
+}
+
+@section breadcrumbs {
+<div id="breadcrumbs">
+    <div class="breadcrumb-button blue">
+        <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+
+    <div class="breadcrumb-button">
+        <span class="breadcrumb-label">
+        <i class="icon-user"></i> Users
+        </span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+</div>
+}
+
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="box">
+      <div class="box-header">
+        <span class="title"><i class="icon-user"></i> New User</span>
+      </div>
+
+      <div class="box-content">
+
+        @using(Html.BeginForm("New", "Users", FormMethod.Post, new { @class = "form-horizontal fill-up validatable" })) {
+
+          <div class="padded">
+            @Html.ValidationSummary()
+
+            <ul class="separate-sections">
+                <li class="input">
+                    <label for="Name">Username</label>
+                    @Html.TextBoxFor(m => m.UserName, new Dictionary<string, object> { 
+                        { "class", "validate[required]" },
+                        { "data-prompt-position", "topLeft" },
+                        { "placeholder", "Name" }
+                    })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </li>
+                <li class="input">
+                    <label for="Title">Email</label>
+                    @Html.TextBoxFor(m => m.Email, new Dictionary<string, object> { 
+                        { "class", "validate[required]" },
+                        { "data-prompt-position", "topLeft" },
+                        { "placeholder", "Title" }
+                    })
+                    @Html.ValidationMessageFor(m => m.Email)
+                </li>
+                <li class="input">
+                    <label for="Title">Password</label>
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </li>
+                <li class="input">
+                    <label for="Title">Confirm Password</label>
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </li>
+            </ul>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Save changes</button>
+            <button type="button" class="btn btn-default">Cancel</button>
+          </div>
+        }
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+@section scripts {
+}

@@ -6,12 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq;
-using SquareHook.Membership.Models;
-using SquareHook.Membership.Data.Models;
 using System.Net.Mail;
+using SquareHook.Membership.Models;
 
 namespace SquareHook.Membership.Controllers
 {
@@ -31,7 +27,6 @@ namespace SquareHook.Membership.Controllers
         protected override void OnResultExecuting(ResultExecutingContext filterContext)
         {
             ViewBag.IsAdmin = IsAdmin;
-            ViewBag.IsRestaurant = IsRestaurant;
             base.OnResultExecuting(filterContext);
         }
 
@@ -71,18 +66,18 @@ namespace SquareHook.Membership.Controllers
             }
         }
 
-        private SquareHook.Membership.Data.DataContext _context;
+        private SquareHook.Membership.Models.DataContextDataContext _context;
 
         /// <summary>
         /// Data context that is used to communicate with and retrieve the data from the database.
         /// </summary>
-        public SquareHook.Membership.Data.DataContext Context
+        public SquareHook.Membership.Models.DataContextDataContext Context
         {
             get
             {
                 if (_context == null)
                 {
-                    _context = new SquareHook.Membership.Data.DataContext(ConfigurationManager.ConnectionStrings["MongoConnection"].ConnectionString);
+                    _context = new DataContextDataContext(ConfigurationManager.ConnectionStrings["StudioElementConnectionString"].ConnectionString);
                 }
                 return _context;
             }
@@ -122,14 +117,6 @@ namespace SquareHook.Membership.Controllers
             }
         }
 
-        public bool IsRestaurant
-        {
-            get
-            {
-                return IsInRole("restaurant");
-            }
-        }
-
         /// <summary>
         /// checks to see if the current logged in user is in the specified role.
         /// </summary>
@@ -152,41 +139,8 @@ namespace SquareHook.Membership.Controllers
             }
         }
 
-        public ObjectId SiteUserId
-        {
-            get
-            {
-                if (SiteUser != null)
-                {
-                    return new ObjectId(SiteUser.ProviderUserKey.ToString());
-                }
-                return ObjectId.Empty;
-            }
-        }
-
-        private User _currentUser = null;
-        public User CurrentUser
-        {
-            get
-            {
-                if (_currentUser == null) { _currentUser = Context.Users.GetUser(this.SiteUserId); }
-                return _currentUser;
-            }
-        }
         #endregion
-
-        public Client getClient()
-        {
-            var user = Context.Users.GetUser(SiteUserId);
-            Client customer = new Client();
-            if (user.Clients != null && user.Clients.Count > 0)
-            {
-                customer = Context.Clients.GetClient(user.Clients.First());
-            }
-
-            return customer;
-        }
-
+    
         #region email
 
         /// <summary>
@@ -263,13 +217,5 @@ namespace SquareHook.Membership.Controllers
         }
 
         #endregion
-
-        public string ClientIP
-        {
-            get
-            {
-                return Request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? Request.UserHostAddress;
-            }
-        }
     }
 }

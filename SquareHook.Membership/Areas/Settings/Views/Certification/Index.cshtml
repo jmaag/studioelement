@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Certifications";
+    Layout = "~/Views/Shared/_LayoutCoreAdmin.cshtml";
+}
+
+@section title {    
+    <h3 class="title">
+        <i class="icon-heart"></i>
+        Certifications
+    </h3>
+    <h5>
+        <span></span>
+    </h5>
+}
+
+@section breadcrumbs {
+<div id="breadcrumbs">
+    <div class="breadcrumb-button blue">
+        <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+    <div class="breadcrumb-button">
+        <span class="breadcrumb-label">
+        <i class="icon-heart"></i> Certifications
+        </span>
+        <span class="breadcrumb-arrow"><span></span></span>
+    </div>
+
+</div>
+}
+
+<div class="box">
+  <div class="box-header">
+    <span class="title">Certifications</span>
+    <ul class="box-toolbar">
+      <li><a href="@Url.Action("New")" class="btn btn-info">New</a></li>
+    </ul>
+  </div>
+  <div class="box-content">
+    <table class="table table-normal data-table">
+        <thead>
+            <tr>
+                <th style="width: 1%;"></th>
+                <th>Title</th>
+                <th>Abbreviation</th>
+                <th>Career Track(s)</th>
+                <th>Provider</th>
+                <th>Level</th>
+                <th style="width: 1%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="7"> Loading</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="7">
+                    <form class="form-inline table-search pull-left">
+                        <input type="text" class="" id="tableSearch" />
+                        <button type="submit" class="btn btn-info" id="tableSearchBtn">Search</button>
+                    </form>
+                    <div class="pagination pull-right alternate">
+                    </div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+  </div>
+</div>
+
+
+
+<script id="tableTemplate" type="text/html">
+    {{#results}}
+    <tr id="{{CertificationID}}">
+        <td><a href="@Url.Action("Edit")/{{CertificationID}}" class="btn btn-info">Edit</a></td>
+        <td>{{Title}}</td>
+        <td>{{Abbreviation}}</td>
+        <td>{{CareerTrack}}</td>
+        <td>{{ProviderName}}</td>
+        <td>{{LevelName}}</td>
+        <td><a href="@Url.Action("Delete")/{{CertificationID}}" class="btn btn-danger delete">Delete</a></td>
+    </tr>
+    {{/results}}
+</script>
+
+@section scripts {
+
+<script src="/Scripts/mustache.js" type="text/javascript" language="javascript"></script>
+<script src="/Scripts/jquery.timeago.js" type="text/javascript" language="javascript"></script>
+<script src="@Url.Content("~/Scripts/PagingSearch.js")" type="text/javascript" language="javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        Leuly.PagingSearch.Initialize("@Url.Action("GetCertifications")", "#tableTemplate");
+    });
+</script>
+
+}

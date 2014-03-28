@@ -1,0 +1,96 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>CompTIA IT Certification Roadmap</title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/front.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="row">
+        <div class="span12">
+            <img src="/Content/img/header.jpg" style="width: 100%;" />
+        </div>
+    </div>
+    <div class="container">
+        <p>
+            Chart your course to success in an IT career.  Use this tool to find certifications that will help you get started or 
+            get ahead.  Choose a career you are interested in pursuing and you can identify the certifications that will help you 
+            get there.
+        </p>  
+        
+        <div class="sh-widget">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 class="sh-header-left">SELECT A CAREER:</h3>
+                    <ul class="sh-career-list"></ul>
+                    <hr />
+                    <h4>CERTIFICATION PROVIDERS</h4>
+                    <ul class="sh-provider-list"></ul>
+                    <a class="sh-show-more" href="#">SEE MORE...</a>
+                    <hr />
+                    <a class="sh-view-all" href="#">VIEW ALL CERTIFICATIONS</a>
+                </div>
+                <div class="col-md-9">
+                    <h3 class="sh-header-right">THESE ARE HELPFUL CERTIFICATIONS:</h3>
+                    <div class="sh-details">
+                        <section class="header">
+                            <button class="pull-right">Print</button>
+                            <h2>career name</h2>
+                            <div class="details">Average Salary: USD <span class="average-salary"></span> | Current Demand: <span class="demand"></span></div>
+                        </section>
+                        <section class="levels"></section>
+                    </div>
+                </div>
+            </div>
+            <script type="text/html" id="shCareerItemTemplate">
+                {{#careers}}
+                <li><a href="#" data-id="{{CareerID}}">{{Name}}</a></li>
+                {{/careers}}
+            </script> 
+            <script type="text/html" id="shProviderListTemplate">
+                {{#providers}}
+                <li{{^Show}} style="display: none;"{{/Show}}><input type="checkbox" checked="checked" data-id="{{ProviderID}}" /> {{Name}} ({{CertificationCount}})</li>
+                {{/providers}}
+            </script> 
+            <script type="text/html" id="shDetails">
+                {{#Levels}}
+                <section class="level-details {{NameClass}}">
+                    <h3><span class="fa fa-plus"></span> {{Name}} <span class="level-index">{{LevelID}}</span></h3>
+                    <ul>
+                        {{#Certifications}}
+                        <li><a data-title="{{Provider}}" data-content="<span>{{Title}}</span><br />{{Details}}">{{Title}}</a></li>
+                        {{/Certifications}}
+                    </ul>
+                </section>
+                {{/Levels}}
+            </script>
+        </div>     
+    </div>
+    <div class="row">
+        <div class="span12">
+            <img src="/Content/img/footer.jpg" style="width: 100%;" />
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="/Scripts/front.js"></script>
+</body>
+</html>
