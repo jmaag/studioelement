@@ -65,16 +65,16 @@
             </script> 
             <script type="text/html" id="shProviderListTemplate">
                 {{#providers}}
-                <li{{^Show}} style="display: none;"{{/Show}}><input type="checkbox" checked="checked" data-id="{{ProviderID}}" /> {{Name}} ({{CertificationCount}})</li>
+                <li{{^Show}} style="display: none;"{{/Show}}><input type="checkbox" checked="checked" name="providerList" id="providerList" value="{{ProviderID}}" /> {{Name}} ({{CertificationCount}})</li>
                 {{/providers}}
             </script> 
             <script type="text/html" id="shDetails">
                 {{#Levels}}
                 <section class="level-details {{NameClass}}">
-                    <h3><span class="fa fa-plus"></span> {{Name}} <span class="level-index">{{LevelID}}</span></h3>
+                    <h3{{#Instruction}} class="instruction"{{/Instruction}} data-content="{{Instruction}}"><span class="fa fa-plus"></span> {{Name}} <span class="level-index">{{LevelID}}</span></h3>
                     <ul>
                         {{#Certifications}}
-                        <li><a data-title="{{Provider}}" data-content="<span>{{Title}}</span><br />{{Details}}">{{Title}}</a></li>
+                        {{#Visible}}<li><a data-title="{{Provider}}" data-content="<span>{{Title}}</span><br />{{Details}}">{{Title}}</a></li>{{/Visible}}
                         {{/Certifications}}
                     </ul>
                 </section>

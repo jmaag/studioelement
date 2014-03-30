@@ -17,6 +17,7 @@ namespace SquareHook.Membership.Models
         public int LevelID { get; set; }
         public int Index { get; set; }
         public string Name { get; set; }
+        public string Instruction { get; set; }
         public string NameClass
         {
             get

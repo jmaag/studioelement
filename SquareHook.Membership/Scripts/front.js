@@ -7,6 +7,7 @@ SquareHook.Certification = (function ($) {
     my.careers = null;
     my.selectedCareer = null;
     my.careerDetails = null;
+    my.selectedProviders = null;
 
     my.BaseUrl = "/API/";
 
@@ -27,6 +28,26 @@ SquareHook.Certification = (function ($) {
         $(".sh-view-all").click(my.ViewAll);
     };
 
+    my.getSelectedProviders = function () {
+        my.selectedProviders = $(".sh-provider-list input:checkbox:checked").map(function () {
+            return eval($(this).val());
+        }).get();
+
+        return my.selectedProviders;
+    };
+
+    my.providerSelected = function (id) {
+        var found = false;
+        for (var i = 0; i < my.selectedProviders.length; i++) {
+            if (id == my.selectedProviders[i]) {
+                found = true;
+                break;
+            }
+        }
+
+        return found;
+    };
+
     my.Start = function () {
         $.post(my.BaseUrl + "Start", null, function (results) {
             if (results.success) {
@@ -38,9 +59,19 @@ SquareHook.Certification = (function ($) {
 
                 var plist = Mustache.render($("#shProviderListTemplate").html(), my);
                 $(".sh-provider-list").html(plist);
+
+                $(".sh-provider-list input[type='checkbox']").click(my.refreshProviders);
+                my.getSelectedProviders();
             }
             else { alert("Error Initializing"); }
         });
+    };
+
+    my.refreshProviders = function () {
+        var providers = my.getSelectedProviders();
+        var data = { success: true, results: my.careerDetails };
+        console.log("refresh");
+        my.ProcessDetails(data);
     };
 
     my.SelectCareer = function (e) {
@@ -87,8 +118,23 @@ SquareHook.Certification = (function ($) {
     my.ProcessDetails = function (results) {
         if (results.success) {
             my.careerDetails = results.results;
+
+            // set visible provider certs
+            for (var l = 0; l < my.careerDetails.Levels.length; l++) {
+                var level = my.careerDetails.Levels[l];
+                for (var c = 0; c < level.Certifications.length; c++) {
+                    level.Certifications[c].Visible = my.providerSelected(level.Certifications[c].ProviderID);
+                }
+            }
+
             var output = Mustache.render($("#shDetails").html(), my.careerDetails);
             $(".sh-details .levels").html(output);
+
+            $(".instruction").popover({
+                html: true,
+                placement: 'right',
+                container: '.instruction'
+            });
 
             $(".sh-details .levels li > a").popover({
                 html: true,

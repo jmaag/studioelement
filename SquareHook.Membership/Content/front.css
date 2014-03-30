@@ -269,3 +269,29 @@
 .popover.right > .arrow:after {
     border-right-color: rgba(0,0,0,0.35);
 }
+
+/* white popover */
+
+.instruction > .popover 
+{
+    background-color: rgba(255,255,255,0.6);
+    color: #000;
+    
+}
+
+.instruction > .popover-title 
+{
+    color: #000;
+}
+
+.instruction > .popover span
+{
+    font-size: 12px;
+}
+
+.instruction > .popover.right > .arrow {
+    border-right-color: rgba(0,0,0,0.35);
+}
+.instruction > .popover.right > .arrow:after {
+    border-right-color: rgba(0,0,0,0.35);
+}

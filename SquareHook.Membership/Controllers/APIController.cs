@@ -54,10 +54,13 @@ namespace SquareHook.Membership.Controllers
                 CareerDetails model = new Models.CareerDetails();
                 model.Levels = new List<LevelDetails>();
 
+                // receive career
+                var career = (from c in Context.sh_careers where c.CareerID == id select c).First();
+
                 // retrieve certifications
                 var certs = (from c in Context.sh_certifications where c.sh_career_certifications.Any(car => car.CareerID == id) 
                              orderby c.LevelID select c).ToList();
-
+                
                 foreach (var cert in certs)
                 {
                     var levelCheck = (from l in model.Levels where l.LevelID == cert.LevelID select l);
@@ -87,11 +90,43 @@ namespace SquareHook.Membership.Controllers
                     });
                 }
 
+                int instructionIndex = 0;
+                foreach (var level in model.Levels)
+                {
+                    level.Instruction = getInstruction(career, ref instructionIndex);
+                }
+
                 return Json(new { success = true, results = model });
             }
             catch {}
 
             return Json(new { success = false });
+        }
+
+        private string getInstruction(sh_career career, ref int index)
+        {
+            string result = "";
+            switch (index)
+            {
+                case 0:
+                    result = career.Level1Instructions;
+                    break;
+                case 1:
+                    result = career.Level2Instructions;
+                    break;
+                case 2:
+                    result = career.Level3Instructions;
+                    break;
+                case 3:
+                    result = career.Level4Instructions;
+                    break;
+                case 4:
+                    result = career.Level5Instructions;
+                    break;
+            }
+
+            index++;
+            return result;
         }
 
         public JsonResult ViewAll()
