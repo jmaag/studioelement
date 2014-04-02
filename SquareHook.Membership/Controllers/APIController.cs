@@ -29,7 +29,7 @@ namespace SquareHook.Membership.Controllers
                     c.Level5Instructions 
                 }).ToList();
                 var providers = (from p in Context.sh_providers
-                                 orderby p.Name select new Provider { 
+                                 orderby p.sh_certifications.Count descending select new Provider { 
                                          Name = p.Name, 
                                          ProviderID = p.ProviderID, 
                                          CertificationCount = p.sh_certifications.Count,
@@ -90,13 +90,29 @@ namespace SquareHook.Membership.Controllers
                     });
                 }
 
+                var providers = (from p in Context.sh_providers
+                                 where p.sh_certifications.Any(c => c.sh_career_certifications.Any(ca => ca.CareerID == id))
+                                 orderby p.sh_certifications.Count descending
+                                 select new Provider
+                                 {
+                                     Name = p.Name,
+                                     ProviderID = p.ProviderID,
+                                     CertificationCount = p.sh_certifications.Where(c => c.sh_career_certifications.Any(ce => ce.CareerID == id)).Count(),
+                                     Show = true
+                                 }).ToList();
+
+                for (int i = 0; i < providers.Count; i++)
+                {
+                    providers[i].Show = i < 10;
+                }
+
                 int instructionIndex = 0;
                 foreach (var level in model.Levels)
                 {
                     level.Instruction = getInstruction(career, ref instructionIndex);
                 }
 
-                return Json(new { success = true, results = model });
+                return Json(new { success = true, results = model, providers = providers });
             }
             catch {}
 
@@ -172,7 +188,22 @@ namespace SquareHook.Membership.Controllers
                     });
                 }
 
-                return Json(new { success = true, results = model });
+                var providers = (from p in Context.sh_providers
+                                 orderby p.sh_certifications.Count descending
+                                 select new Provider
+                                 {
+                                     Name = p.Name,
+                                     ProviderID = p.ProviderID,
+                                     CertificationCount = p.sh_certifications.Count,
+                                     Show = true
+                                 }).ToList();
+
+                for (int i = 0; i < providers.Count; i++)
+                {
+                    providers[i].Show = i < 10;
+                }
+
+                return Json(new { success = true, results = model, providers = providers });
             }
             catch { }
 

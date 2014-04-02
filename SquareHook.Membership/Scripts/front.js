@@ -67,10 +67,9 @@ SquareHook.Certification = (function ($) {
         });
     };
 
-    my.refreshProviders = function () {
+    my.refreshProviders = function (e) {
         var providers = my.getSelectedProviders();
-        var data = { success: true, results: my.careerDetails };
-        console.log("refresh");
+        var data = { success: true, results: my.careerDetails, providers: my.providers };
         my.ProcessDetails(data);
     };
 
@@ -95,10 +94,25 @@ SquareHook.Certification = (function ($) {
             $(".sh-details .header .demand").text(my.selectedCareer.Demand);
         }
 
-        $.post(my.BaseUrl + "CareerDetails", { id: id }, my.ProcessDetails);
+        $.post(my.BaseUrl + "CareerDetails", { id: id }, my.processCareerDetails);
 
         e.preventDefault();
         return false;
+    };
+
+    my.processCareerDetails = function (results) {
+        my.providers = results.providers;
+        var plist = Mustache.render($("#shProviderListTemplate").html(), my);
+        $(".sh-provider-list").html(plist);
+        $(".sh-provider-list input[type='checkbox']").click(my.refreshProviders);
+        my.selectedProviders = my.getSelectedProviders();
+
+        if (my.providers.length > 10) {
+            $(".sh-show-more").show();
+        } else {
+            $(".sh-show-more").hide();
+        }
+        my.ProcessDetails(results);
     };
 
     my.ViewAll = function (e) {
@@ -110,7 +124,7 @@ SquareHook.Certification = (function ($) {
             $(".sh-details .header .demand").text("N/A");
         }
 
-        $.post(my.BaseUrl + "ViewAll", null, my.ProcessDetails);
+        $.post(my.BaseUrl + "ViewAll", null, my.processCareerDetails);
         e.preventDefault();
         return false;
     };
@@ -120,15 +134,17 @@ SquareHook.Certification = (function ($) {
             my.careerDetails = results.results;
 
             // set visible provider certs
-            for (var l = 0; l < my.careerDetails.Levels.length; l++) {
-                var level = my.careerDetails.Levels[l];
-                for (var c = 0; c < level.Certifications.length; c++) {
-                    level.Certifications[c].Visible = my.providerSelected(level.Certifications[c].ProviderID);
+            if (my.careerDetails != null) {
+                for (var l = 0; l < my.careerDetails.Levels.length; l++) {
+                    var level = my.careerDetails.Levels[l];
+                    for (var c = 0; c < level.Certifications.length; c++) {
+                        level.Certifications[c].Visible = my.providerSelected(level.Certifications[c].ProviderID);
+                    }
                 }
-            }
 
-            var output = Mustache.render($("#shDetails").html(), my.careerDetails);
-            $(".sh-details .levels").html(output);
+                var output = Mustache.render($("#shDetails").html(), my.careerDetails);
+                $(".sh-details .levels").html(output);
+            }
 
             $(".instruction").popover({
                 html: true,
