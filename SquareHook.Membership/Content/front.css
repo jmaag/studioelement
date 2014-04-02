@@ -22,6 +22,8 @@
 .sh-widget 
 {
     color: #4d4d4d;
+    font-family: calibri-light, sans-serif;
+    border-top: 1px #B6B6B6 solid;
 }
 
 .sh-widget a 
@@ -36,11 +38,12 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    line-height: 20px;
 }
 
 .sh-career-list li 
 {
-    background: url('/Content/img/briefcase.png') 5px 5px no-repeat;
+    background: url('http://comptia.azurewebsites.net//Content/img/briefcase.png') 5px 5px no-repeat;
     margin-bottom: 10px;
     padding: 5px 0px 5px 35px;
     min-height: 37px;
@@ -53,14 +56,16 @@
     color: #4d4d4d;   
     font-size: 19px;
     font-weight: 100;
+    padding-top: 8px;
 }
 
-.sh-career-list li:hover, .sh-career-list li.active
+.sh-career-list .sh-career-list li.active
 {
-    background: #E5E5E5 url('/Content/img/briefcase-red.png') 5px 5px no-repeat;
+    background: #E5E5E5 url('http://comptia.azurewebsites.net/Content/img/briefcase-red.png') 5px 5px no-repeat;
     margin-bottom: 10px;
     padding-left: 35px;    
 }
+
 
 .sh-career-list li:hover a,  .sh-career-list li.active a 
 {
@@ -90,6 +95,7 @@
     padding: 15px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    min-height: 500px;
 }
 
 .sh-details .header 
@@ -110,7 +116,8 @@
 
 .sh-details .header > .details 
 {
-    padding-top: 1em;
+    padding-top: 5px;
+    font-size: 16px;
 }
 
 /* level details */
@@ -132,6 +139,7 @@
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 0px;
 } 
 
 .sh-details .level-details > h3 > span.fa 
@@ -158,6 +166,7 @@
 {
     display: none;
     margin: 0;
+    padding-bottom: 15px;
 }
 
 .sh-details .level-details ul li > a 
@@ -240,11 +249,13 @@
 
 .popover 
 {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(100,100,100,0.8);
     color: #FFF;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    box-shadow: 0px 0px 0px black;
+    font-family: calibri-light, sans-serif
     
 }
 
@@ -264,34 +275,50 @@
 }
 
 .popover.right > .arrow {
-    border-right-color: rgba(0,0,0,0.35);
+    border-right-color: rgba(100,100,100,0.8);
 }
 .popover.right > .arrow:after {
-    border-right-color: rgba(0,0,0,0.35);
+    border-right-color: rgba(100,100,100,0.8);
 }
 
-/* white popover */
+/* additions by Brian */
 
-.instruction > .popover 
-{
-    background-color: rgba(255,255,255,0.6);
-    color: #000;
-    
+.container {
+	margin-top: 15px;
 }
 
-.instruction > .popover-title 
-{
-    color: #000;
+.container p {
+	color: #4D4D4D;
+	font-family: calibri-light, sans-serif;
+	font-size: 21px;
 }
 
-.instruction > .popover span
-{
-    font-size: 12px;
+.instruction > .popover {
+	background: none !important;
+	font-family: calibri-light, sans-serif !important;
+	font-style: italic;
+	font-size: 14px;
+	color: #666666;
+	text-transform: none !important;
+	font-weight: 100 !important;
+	width: 200px;
+	border: none;
+	box-shadow: 0px 0px 0px black;
+	margin-left: 20px;
 }
 
-.instruction > .popover.right > .arrow {
-    border-right-color: rgba(0,0,0,0.35);
+.instruction > .popover.right > .arrow{
+	border-right-color:rgba(256,256,256,1);
 }
-.instruction > .popover.right > .arrow:after {
-    border-right-color: rgba(0,0,0,0.35);
+
+li.active{
+	background-color: rgb(226, 226, 226);
+}
+
+.popover {
+	background-color:rgba(105, 105, 105, 0.85);
+}
+
+.popover-content span {
+	font-size: 26px;
 }
