@@ -294,7 +294,7 @@
 	font-size: 21px;
 }
 
-.instruction > .popover {
+#instructionContainer > .popover {
 	background: none !important;
 	font-family: calibri-light, sans-serif !important;
 	font-style: italic;
@@ -308,7 +308,7 @@
 	margin-left: 20px;
 }
 
-.instruction > .popover.right > .arrow{
+#instructionContainer > .popover.right > .arrow{
 	border-right-color:rgba(256,256,256,1);
 }
 

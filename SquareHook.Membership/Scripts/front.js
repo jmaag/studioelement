@@ -146,10 +146,10 @@ SquareHook.Certification = (function ($) {
                 $(".sh-details .levels").html(output);
             }
 
-            $(".instruction").popover({
+            var instruct = $(".instruction").popover({
                 html: true,
                 placement: 'right',
-                container: 'body'
+                container: '#instructionContainer'
             });
 
             $(".sh-details .levels li > a").popover({
