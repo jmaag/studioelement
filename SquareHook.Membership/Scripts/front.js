@@ -142,15 +142,26 @@ SquareHook.Certification = (function ($) {
                     }
                 }
 
+                $(".popover").remove();
+
                 var output = Mustache.render($("#shDetails").html(), my.careerDetails);
                 $(".sh-details .levels").html(output);
             }
 
-            var instruct = $(".instruction").popover({
+            $(".instruction").popover({
                 html: true,
                 placement: 'right',
                 container: '#instructionContainer'
-            });
+            })
+
+            /*$(".instruction").on('shown.bs.popover', function (element) {
+            var popover = $("#instructionContainer .popover")
+            var height = popover.height() / 3;
+            var top = popover.position().top;
+            popover.css("top", (top + height) + "px");
+
+            console.log("yay");
+            });*/
 
             $(".sh-details .levels li > a").popover({
                 html: true,
