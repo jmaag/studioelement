@@ -116,6 +116,9 @@
     <Content Include="Content\img\service.png" />
     <Content Include="Content\img\tapsterlogo.png" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\img\plusminus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\styles\app-compiled.css" />
     <Content Include="Content\styles\application.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
