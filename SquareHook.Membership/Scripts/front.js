@@ -179,12 +179,12 @@ SquareHook.Certification = (function ($) {
     my.ToggleCertifications = function (e) {
         $(this).parent().find("ul").slideToggle();
 
-        var icon = $(this).find(".fa");
-        if (icon.hasClass("fa-plus")) {
-            icon.removeClass("fa-plus").addClass("fa-minus");
+        var icon = $(this).find(".shicon");
+        if (icon.hasClass("shicon-plus")) {
+            icon.removeClass("shicon-plus").addClass("shicon-minus");
         }
         else {
-            icon.removeClass("fa-minus").addClass("fa-plus");
+            icon.removeClass("shicon-minus").addClass("shicon-plus");
         }
     };
 

@@ -143,10 +143,11 @@
     margin-bottom: 0px;
 } 
 
-.sh-details .level-details > h3 > span.fa 
+.sh-details .level-details > h3 > span.cert 
 {
-    font-weight: 100;
-    font-size: 20px;
+    position: relative;
+    top: -4px;
+    left: 5px;
 }
 
 .sh-details .level-details .level-index 
@@ -331,4 +332,24 @@ li.active{
 
 .popover-content span {
 	font-size: 26px;
+}
+
+/* plus minus icons */
+
+.shicon 
+{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url('img/plusminus.png');
+}
+
+.shicon.shicon-minus 
+{
+    background-position: -5px -1px;
+}
+
+.shicon.shicon-plus 
+{
+    background-position: -5px 29px;
 }

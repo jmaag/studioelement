@@ -17,7 +17,6 @@
     <title>CompTIA IT Certification Roadmap</title>
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/Content/front.css" rel="stylesheet" />
 
 </head>
@@ -71,7 +70,7 @@
             <script type="text/html" id="shDetails">
                 {{#Levels}}
                 <section class="level-details {{NameClass}}">
-                    <h3{{#Instruction}} class="instruction {{#First}}active{{/First}}"{{/Instruction}} data-content="{{Instruction}}"><span class="fa fa-plus"></span> {{Name}} <span class="level-index">{{LevelID}}</span></h3>
+                    <h3{{#Instruction}} class="instruction {{#First}}active{{/First}}"{{/Instruction}} data-content="{{Instruction}}"><span class="shicon {{#First}}shicon-minus{{/First}}{{^First}}shicon-plus{{/First}}"></span> <span class="cert">{{Name}}</span> <span class="level-index">{{LevelID}}</span></h3>
                     <ul {{#First}}class="active"{{/First}}>
                         {{#Certifications}}
                         {{#Visible}}<li><a href="{{Url}}" target="_blank" data-title="{{Provider}}" data-content="<span>{{Title}}</span><br />{{Details}}">{{Title}}</a></li>{{/Visible}}
