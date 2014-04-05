@@ -153,9 +153,10 @@ SquareHook.Certification = (function ($) {
 
             $(".instruction").popover({
                 html: true,
-                placement: 'right',
-                container: '#instructionContainer'
+                placement: 'right'
             })
+
+            $(".instruction.active").popover('show');
 
             /*$(".instruction").on('shown.bs.popover', function (element) {
             var popover = $("#instructionContainer .popover")
@@ -176,7 +177,7 @@ SquareHook.Certification = (function ($) {
     };
 
     my.ToggleCertifications = function (e) {
-        $(this).next().slideToggle();
+        $(this).parent().find("ul").slideToggle();
 
         var icon = $(this).find(".fa");
         if (icon.hasClass("fa-plus")) {
