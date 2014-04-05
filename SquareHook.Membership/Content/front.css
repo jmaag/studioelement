@@ -169,6 +169,11 @@
     padding-bottom: 15px;
 }
 
+.sh-details .level-details ul.active 
+{
+    display: block;
+}
+
 .sh-details .level-details ul li > a 
 {
     color: #4d4d4d;

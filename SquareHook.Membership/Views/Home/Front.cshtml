@@ -72,7 +72,7 @@
                 {{#Levels}}
                 <section class="level-details {{NameClass}}">
                     <h3{{#Instruction}} class="instruction"{{/Instruction}} data-content="{{Instruction}}"><span class="fa fa-plus"></span> {{Name}} <span class="level-index">{{LevelID}}</span></h3>
-                    <ul>
+                    <ul {{#First}}class="active"{{/First}}>
                         {{#Certifications}}
                         {{#Visible}}<li><a href="{{Url}}" data-title="{{Provider}}" data-content="<span>{{Title}}</span><br />{{Details}}">{{Title}}</a></li>{{/Visible}}
                         {{/Certifications}}

@@ -144,6 +144,9 @@ SquareHook.Certification = (function ($) {
 
                 $(".popover").remove();
 
+                if (my.careerDetails.Levels != null && my.careerDetails.Levels.length > 0) {
+                    my.careerDetails.Levels[0].First = true;
+                }
                 var output = Mustache.render($("#shDetails").html(), my.careerDetails);
                 $(".sh-details .levels").html(output);
             }
@@ -173,7 +176,7 @@ SquareHook.Certification = (function ($) {
     };
 
     my.ToggleCertifications = function (e) {
-        $(this).next().toggle();
+        $(this).next().slideToggle();
 
         var icon = $(this).find(".fa");
         if (icon.hasClass("fa-plus")) {
