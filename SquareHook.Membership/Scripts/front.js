@@ -118,6 +118,11 @@ SquareHook.Certification = (function ($) {
 
         $.post(my.BaseUrl + "CareerDetails", { id: id }, my.processCareerDetails);
 
+        // hide start
+        $(".sh-start").hide();
+        $(".sh-details section.header").show();
+        $(".sh-details section.levels").show();
+
         e.preventDefault();
         return false;
     };

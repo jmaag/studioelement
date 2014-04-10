@@ -87,6 +87,28 @@
     margin-bottom: 1px;
 }
 
+/* start section */
+
+.sh-start h3
+{
+    color: #1490B7;    
+}
+
+.sh-start h2
+{
+    font-weight: 100;
+}
+
+.sh-start h4
+{    
+}
+
+.sh-start p
+{
+    font-weight: 100;
+    font-size: 17px !important;    
+}
+
 /* details section */
 
 .sh-details 
@@ -102,6 +124,12 @@
 {
     border-bottom: 1px solid #adadad;
     padding-bottom: 1em;
+    display: none;
+}
+
+.sh-details .levels 
+{
+    display: none;
 }
 
 .sh-details .header > h2 
