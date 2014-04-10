@@ -19,8 +19,15 @@ SquareHook.Certification = (function ($) {
         $(".sh-details .levels").on("hover", "li", my.CertificationDetails);
 
         $(".sh-show-more").click(function (e) {
-            $(".sh-provider-list li").removeAttr("style");
-            $(this).hide();
+            var providers = $(".sh-provider-list li.provider-toggle").toggle();
+
+            if ($(this).html() == "SEE MORE...") {
+                $(this).html("SEE LESS...");
+            }
+            else {
+                $(this).html("SEE MORE...");
+            }
+            //$(this).hide();
             e.preventDefault();
             return false;
         });

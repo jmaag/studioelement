@@ -64,7 +64,7 @@
             </script> 
             <script type="text/html" id="shProviderListTemplate">
                 {{#providers}}
-                <li{{^Show}} style="display: none;"{{/Show}}><input type="checkbox" checked="checked" name="providerList" id="providerList" value="{{ProviderID}}" /> {{Name}} ({{CertificationCount}})</li>
+                <li{{^Show}} class="provider-toggle"{{/Show}}><input type="checkbox" checked="checked" name="providerList" id="providerList" value="{{ProviderID}}" /> {{Name}} ({{CertificationCount}})</li>
                 {{/providers}}
             </script> 
             <script type="text/html" id="shDetails">

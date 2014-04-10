@@ -38,7 +38,7 @@ namespace SquareHook.Membership.Controllers
 
                 for (int i = 0; i < providers.Count; i++)
                 {
-                    providers[i].Show = i < 10;
+                    providers[i].Show = i < 5;
                 }
                 return Json(new { success = true, careers = careers, providers = providers });
             }
@@ -103,7 +103,7 @@ namespace SquareHook.Membership.Controllers
 
                 for (int i = 0; i < providers.Count; i++)
                 {
-                    providers[i].Show = i < 10;
+                    providers[i].Show = i < 5;
                 }
 
                 int instructionIndex = 0;
@@ -200,7 +200,7 @@ namespace SquareHook.Membership.Controllers
 
                 for (int i = 0; i < providers.Count; i++)
                 {
-                    providers[i].Show = i < 10;
+                    providers[i].Show = i < 5;
                 }
 
                 return Json(new { success = true, results = model, providers = providers });

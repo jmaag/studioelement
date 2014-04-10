@@ -20,3 +20,4 @@ E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\bin\SquareHook
 E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\bin\EntityFramework.dll
 E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\bin\EntityFramework.xml
 E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\obj\Debug\SquareHook.Membership.pdb
+E:\Code\studioelement\SquareHook.Membership\SquareHook.Membership\bin\Content\img\plusminus.png
