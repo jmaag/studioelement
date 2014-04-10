@@ -17,6 +17,8 @@ SquareHook.Certification = (function ($) {
         $(".sh-career-list").on("click", "a", my.SelectCareer);
         $(".sh-details .levels").on("click", ".level-details > h3", my.ToggleCertifications)
         $(".sh-details .levels").on("hover", "li", my.CertificationDetails);
+        $(".sh-provider-list").on("click", ".select-all", my.SelectAllProviders);
+        $(".sh-provider-list").on("click", ".select-none", my.SelectNoProviders);
 
         $(".sh-show-more").click(function (e) {
             var providers = $(".sh-provider-list li.provider-toggle").toggle();
@@ -27,12 +29,25 @@ SquareHook.Certification = (function ($) {
             else {
                 $(this).html("SEE MORE...");
             }
-            //$(this).hide();
             e.preventDefault();
             return false;
         });
 
         $(".sh-view-all").click(my.ViewAll);
+    };
+
+    my.SelectAllProviders = function (e) {
+        $(".check").prop("checked", true);
+        my.refreshProviders();
+        e.preventDefault();
+        return false;
+    };
+
+    my.SelectNoProviders = function (e) {
+        $(".check").prop("checked", false);
+        my.refreshProviders();
+        e.preventDefault();
+        return false;
     };
 
     my.getSelectedProviders = function () {

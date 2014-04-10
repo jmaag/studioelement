@@ -63,8 +63,9 @@
                 {{/careers}}
             </script> 
             <script type="text/html" id="shProviderListTemplate">
+                <li><a href="#" class="select-all">Select All</a> | <a href="#" class="select-none">Select None</a></li>
                 {{#providers}}
-                <li{{^Show}} class="provider-toggle"{{/Show}}><input type="checkbox" checked="checked" name="providerList" id="providerList" value="{{ProviderID}}" /> {{Name}} ({{CertificationCount}})</li>
+                <li{{^Show}} class="provider-toggle"{{/Show}}><input type="checkbox" class="check" checked="checked" name="providerList" id="providerList" value="{{ProviderID}}" /> {{Name}} ({{CertificationCount}})</li>
                 {{/providers}}
             </script> 
             <script type="text/html" id="shDetails">
