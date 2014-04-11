@@ -118,6 +118,13 @@ SquareHook.Certification = (function ($) {
 
         $.post(my.BaseUrl + "CareerDetails", { id: id }, my.processCareerDetails);
 
+        // if small screen scroll
+        if ($(window).width() < 980) {
+            $('html, body').animate({
+                scrollTop: $("#shGoto").offset().top
+            }, 500);
+        }
+
         // hide start
         $(".sh-start").hide();
         $(".sh-details section.header").show();
