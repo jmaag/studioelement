@@ -48,6 +48,7 @@
     padding: 5px 0px 5px 35px;
     min-height: 37px;
     border-bottom-left-radius: 10px;
+    position: relative;
 }
 
 .sh-career-list li a
@@ -57,6 +58,21 @@
     font-size: 19px;
     font-weight: 100;
     padding-top: 8px;
+}
+
+.sh-career-list li .arrow 
+{
+    display: none;
+}
+
+.sh-career-list li.active .arrow 
+{
+    display: inline;
+    position: absolute;
+    top: -7px;
+    right: -23px;
+    color: #ED3022;
+    font-size: 3.8em;
 }
 
 .sh-career-list .sh-career-list li.active
