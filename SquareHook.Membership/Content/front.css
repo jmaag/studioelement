@@ -43,9 +43,8 @@
 
 .sh-career-list li 
 {
-    background: url('img/icons2.png') 5px 5px no-repeat;
     margin-bottom: 10px;
-    padding: 5px 0px 5px 35px;
+    padding: 5px 0px 5px 5px;
     min-height: 37px;
     border-bottom-left-radius: 10px;
     position: relative;
@@ -88,6 +87,24 @@
     color: #DD231B;
     text-decoration: none;
 }
+
+.sh-icon2 
+{
+    float: left;
+    background-image: url('img/icons2.png');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    margin-top: -7px;
+    width: 33px;
+    height: 33px;
+    margin-right: 10px;
+}
+
+.sh-career-list li a:hover .sh-icon2, .sh-career-list li.active a .sh-icon2 
+{
+    background-position: 0px -31px;
+}
+
 
 /* provider list */
 
@@ -409,4 +426,16 @@ h4{
 .shicon.shicon-plus 
 {
     background-position: -5px 29px;
+}
+
+button.sh-print {
+    background-color: #ED3022;
+    border:none;
+    color: white;
+    padding: 5px 12px 3px;
+    border-radius: 9px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    text-transform: uppercase;
+    font-size: 16px;
 }

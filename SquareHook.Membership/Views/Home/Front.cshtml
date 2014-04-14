@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <section class="header">
-                            <button class="pull-right">Print</button>
+                            <button class="pull-right sh-print">Print</button>
                             <h2>career name</h2>
                             <div class="details">Average Salary: USD <span class="average-salary"></span> | Current Demand: <span class="demand"></span></div>
                         </section>
@@ -76,7 +76,7 @@
             </div>
             <script type="text/html" id="shCareerItemTemplate">
                 {{#careers}}
-                <li><a href="#" data-id="{{CareerID}}">{{Name}}</a><i class="fa fa-caret-right arrow"></i></li>
+                <li><a href="#" data-id="{{CareerID}}"><i class="sh-icon2"></i> {{Name}}</a><i class="fa fa-caret-right arrow"></i></li>
                 {{/careers}}
             </script> 
             <script type="text/html" id="shProviderListTemplate">
@@ -100,6 +100,14 @@
         </div>   
     </div>
     <div id="instructionContainer"></div>
+    <div class="container">
+        <p>
+            Average Salaries from: 
+            <a href="http://www.computerworld.com/s/article/9237351/IT_Salary_Survey_2013">
+                http://www.computerworld.com/s/article/9237351/IT_Salary_Survey_2013
+            </a>
+        </p>            
+    </div>
     <div class="row">
         <div class="span12">
             <img src="/Content/img/footer.jpg" style="width: 100%;" />
