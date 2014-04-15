@@ -439,3 +439,9 @@ button.sh-print {
     text-transform: uppercase;
     font-size: 16px;
 }
+
+/* print view */
+@media print
+{
+  header, footer {display: none;}
+}

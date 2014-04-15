@@ -34,6 +34,16 @@ SquareHook.Certification = (function ($) {
         });
 
         $(".sh-view-all").click(my.ViewAll);
+
+        $(".sh-print").click(my.Print);
+    };
+
+    my.Print = function () {
+        $(".level-details ul").show();
+
+        var icon = $(this).find(".shicon");
+        icon.removeClass("shicon-plus").addClass("shicon-minus");
+        window.print();
     };
 
     my.SelectAllProviders = function (e) {
