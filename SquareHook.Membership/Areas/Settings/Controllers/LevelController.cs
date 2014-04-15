@@ -29,7 +29,7 @@ namespace SquareHook.Membership.Areas.Settings.Controllers
             var levels = (from l in Context.sh_levels
                           where l.Name.ToLower().Contains(search)
                           orderby l.LevelID
-                          select new { l.LevelID, l.Name });
+                          select new { l.LevelID, l.Name, l.Order });
             total = levels.Count();
 
             var results = levels.Skip((page - 1) * take).Take(take).ToList();

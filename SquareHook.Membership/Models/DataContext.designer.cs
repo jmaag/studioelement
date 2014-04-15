@@ -42,15 +42,15 @@ namespace SquareHook.Membership.Models
     partial void Insertsh_certification(sh_certification instance);
     partial void Updatesh_certification(sh_certification instance);
     partial void Deletesh_certification(sh_certification instance);
-    partial void Insertsh_level(sh_level instance);
-    partial void Updatesh_level(sh_level instance);
-    partial void Deletesh_level(sh_level instance);
     partial void Insertaspnet_User(aspnet_User instance);
     partial void Updateaspnet_User(aspnet_User instance);
     partial void Deleteaspnet_User(aspnet_User instance);
     partial void Insertaspnet_Membership(aspnet_Membership instance);
     partial void Updateaspnet_Membership(aspnet_Membership instance);
     partial void Deleteaspnet_Membership(aspnet_Membership instance);
+    partial void Insertsh_level(sh_level instance);
+    partial void Updatesh_level(sh_level instance);
+    partial void Deletesh_level(sh_level instance);
     #endregion
 		
 		public DataContextDataContext() : 
@@ -115,14 +115,6 @@ namespace SquareHook.Membership.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<sh_level> sh_levels
-		{
-			get
-			{
-				return this.GetTable<sh_level>();
-			}
-		}
-		
 		public System.Data.Linq.Table<aspnet_User> aspnet_Users
 		{
 			get
@@ -136,6 +128,14 @@ namespace SquareHook.Membership.Models
 			get
 			{
 				return this.GetTable<aspnet_Membership>();
+			}
+		}
+		
+		public System.Data.Linq.Table<sh_level> sh_levels
+		{
+			get
+			{
+				return this.GetTable<sh_level>();
 			}
 		}
 	}
@@ -1068,120 +1068,6 @@ namespace SquareHook.Membership.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sh_level")]
-	public partial class sh_level : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LevelID;
-		
-		private string _Name;
-		
-		private EntitySet<sh_certification> _sh_certifications;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLevelIDChanging(int value);
-    partial void OnLevelIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    #endregion
-		
-		public sh_level()
-		{
-			this._sh_certifications = new EntitySet<sh_certification>(new Action<sh_certification>(this.attach_sh_certifications), new Action<sh_certification>(this.detach_sh_certifications));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LevelID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int LevelID
-		{
-			get
-			{
-				return this._LevelID;
-			}
-			set
-			{
-				if ((this._LevelID != value))
-				{
-					this.OnLevelIDChanging(value);
-					this.SendPropertyChanging();
-					this._LevelID = value;
-					this.SendPropertyChanged("LevelID");
-					this.OnLevelIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sh_level_sh_certification", Storage="_sh_certifications", ThisKey="LevelID", OtherKey="LevelID")]
-		public EntitySet<sh_certification> sh_certifications
-		{
-			get
-			{
-				return this._sh_certifications;
-			}
-			set
-			{
-				this._sh_certifications.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_sh_certifications(sh_certification entity)
-		{
-			this.SendPropertyChanging();
-			entity.sh_level = this;
-		}
-		
-		private void detach_sh_certifications(sh_certification entity)
-		{
-			this.SendPropertyChanging();
-			entity.sh_level = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.aspnet_Users")]
 	public partial class aspnet_User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2000,6 +1886,144 @@ namespace SquareHook.Membership.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sh_level")]
+	public partial class sh_level : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _LevelID;
+		
+		private string _Name;
+		
+		private int _Order;
+		
+		private EntitySet<sh_certification> _sh_certifications;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLevelIDChanging(int value);
+    partial void OnLevelIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnOrderChanging(int value);
+    partial void OnOrderChanged();
+    #endregion
+		
+		public sh_level()
+		{
+			this._sh_certifications = new EntitySet<sh_certification>(new Action<sh_certification>(this.attach_sh_certifications), new Action<sh_certification>(this.detach_sh_certifications));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LevelID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int LevelID
+		{
+			get
+			{
+				return this._LevelID;
+			}
+			set
+			{
+				if ((this._LevelID != value))
+				{
+					this.OnLevelIDChanging(value);
+					this.SendPropertyChanging();
+					this._LevelID = value;
+					this.SendPropertyChanged("LevelID");
+					this.OnLevelIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Order]", Storage="_Order", DbType="Int NOT NULL")]
+		public int Order
+		{
+			get
+			{
+				return this._Order;
+			}
+			set
+			{
+				if ((this._Order != value))
+				{
+					this.OnOrderChanging(value);
+					this.SendPropertyChanging();
+					this._Order = value;
+					this.SendPropertyChanged("Order");
+					this.OnOrderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sh_level_sh_certification", Storage="_sh_certifications", ThisKey="LevelID", OtherKey="LevelID")]
+		public EntitySet<sh_certification> sh_certifications
+		{
+			get
+			{
+				return this._sh_certifications;
+			}
+			set
+			{
+				this._sh_certifications.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_sh_certifications(sh_certification entity)
+		{
+			this.SendPropertyChanging();
+			entity.sh_level = this;
+		}
+		
+		private void detach_sh_certifications(sh_certification entity)
+		{
+			this.SendPropertyChanging();
+			entity.sh_level = null;
 		}
 	}
 }

@@ -45,13 +45,6 @@
       <Association Name="sh_level_sh_certification" Member="sh_level" ThisKey="LevelID" OtherKey="LevelID" Type="sh_level" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.sh_level" Member="sh_levels">
-    <Type Name="sh_level">
-      <Column Name="LevelID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="sh_level_sh_certification" Member="sh_certifications" ThisKey="LevelID" OtherKey="LevelID" Type="sh_certification" />
-    </Type>
-  </Table>
   <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
     <Type Name="aspnet_User">
       <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
@@ -88,6 +81,14 @@
       <Column Name="FailedPasswordAnswerAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sh_level" Member="sh_levels">
+    <Type Name="sh_level">
+      <Column Name="LevelID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Order]" Member="Order" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="sh_level_sh_certification" Member="sh_certifications" ThisKey="LevelID" OtherKey="LevelID" Type="sh_certification" />
     </Type>
   </Table>
 </Database>
