@@ -59,7 +59,7 @@ namespace SquareHook.Membership.Controllers
 
                 // retrieve certifications
                 var certs = (from c in Context.sh_certifications where c.sh_career_certifications.Any(car => car.CareerID == id) 
-                             orderby c.LevelID, c.Title select c).ToList();
+                             orderby c.LevelID, c.Title.ToLower() select c).ToList();
                 
                 foreach (var cert in certs)
                 {
@@ -155,7 +155,7 @@ namespace SquareHook.Membership.Controllers
 
                 // retrieve certifications
                 var certs = (from c in Context.sh_certifications
-                             orderby c.LevelID, c.Title
+                             orderby c.LevelID, c.Title.ToLower()
                              select c).ToList();
 
                 foreach (var cert in certs)
