@@ -161,7 +161,7 @@ namespace SquareHook.Membership.Controllers
                 foreach (var cert in certs)
                 {
                     var levelCheck = (from l in model.Levels where l.LevelID == cert.LevelID select l);
-                    LevelDetails level = new LevelDetails() { LevelID = cert.LevelID, Name = cert.sh_level.Name };
+                    LevelDetails level = new LevelDetails() { LevelID = cert.LevelID, Name = cert.sh_level.Name, Index = cert.sh_level.Order };
 
                     if (levelCheck.Count() > 0)
                     {
