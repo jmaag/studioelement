@@ -117,6 +117,7 @@
     <Content Include="Content\img\select2x2.png" />
     <Content Include="Content\img\service.png" />
     <Content Include="Content\img\tapsterlogo.png" />
+    <Content Include="Content\img\thumbnail.jpg" />
     <Content Include="Content\img\Woman-home.jpg" />
     <Content Include="Content\main.css" />
     <Content Include="Content\img\plusminus.png">

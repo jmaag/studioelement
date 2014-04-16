@@ -130,6 +130,8 @@
 .sh-start h2
 {
     font-weight: 100;
+    font-size: 36px;
+	max-width: 600px;
 }
 
 .sh-start h4
@@ -150,7 +152,7 @@
     padding: 15px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    min-height: 700px;
+    min-height: 820px;
 }
 
 .sh-details .header 
@@ -313,6 +315,14 @@
     color: #F16C22;
 }
 
+p.sh-footnote {
+	font-size: 12px;
+	text-align: right;
+	border-top: 1px solid #B6B6B6;
+	padding-top: 10px;
+
+}
+
 /* override the color of the popover */
 
 .popover 
@@ -444,4 +454,16 @@ button.sh-print {
 @media print
 {
   header, footer {display: none;}
+}
+
+/* download link */
+
+.sh-download img 
+{
+    float: left;
+}
+
+.sh-download div
+{
+    padding-top: 45px;
 }

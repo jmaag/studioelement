@@ -168,6 +168,11 @@ SquareHook.Certification = (function ($) {
             $(".sh-details .header .demand").text("N/A");
         }
 
+        // hide start
+        $(".sh-start").hide();
+        $(".sh-details section.header").show();
+        $(".sh-details section.levels").show();
+
         $.post(my.BaseUrl + "ViewAll", null, my.processCareerDetails);
         e.preventDefault();
         return false;
