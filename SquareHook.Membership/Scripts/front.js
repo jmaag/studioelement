@@ -40,6 +40,7 @@ SquareHook.Certification = (function ($) {
 
     my.Print = function () {
         $(".level-details ul").show();
+        $(".instruction").popover('show');
 
         var icon = $(this).find(".shicon");
         icon.removeClass("shicon-plus").addClass("shicon-minus");

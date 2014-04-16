@@ -454,6 +454,17 @@ button.sh-print {
 @media print
 {
   header, footer {display: none;}
+  
+  .sh-sidebar, button.sh-print { display: none; }
+  
+  .sh-details .level-details 
+  {
+      -webkit-print-color-adjust: exact;
+      margin-left: 0px !important;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+  }
 }
 
 /* download link */
