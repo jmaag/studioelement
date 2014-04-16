@@ -163,11 +163,9 @@ SquareHook.Certification = (function ($) {
     my.ViewAll = function (e) {
         $(".sh-career-list li").removeClass("active");
 
-        if (my.selectedCareer != null) {
-            $(".sh-details .header > h2").text("All Careers");
-            $(".sh-details .header .average-salary").text("N/A");
-            $(".sh-details .header .demand").text("N/A");
-        }
+        $(".sh-details .header > h2").text("All Available Certifications");
+        $(".sh-details .header .average-salary").text("N/A");
+        $(".sh-details .header .demand").text("N/A");
 
         // hide start
         $(".sh-start").hide();
