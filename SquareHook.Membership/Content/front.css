@@ -316,7 +316,7 @@
 }
 
 p.sh-footnote {
-	font-size: 12px;
+	font-size: 14px !important;
 	text-align: right;
 	border-top: 1px solid #B6B6B6;
 	padding-top: 10px;
@@ -357,7 +357,7 @@ p.sh-footnote {
     border-right-color: rgba(105,105,105,0.0) !important;
 }
 .popover.right > .arrow:after {
-    border-right-color: rgba(105,105,105,0.85) !important;
+    border-right-color: rgba(105,105,105,0.93) !important;
 }
 
 .popover-content{
@@ -403,7 +403,7 @@ li.active{
 }
 
 .popover {
-    background-color:rgba(105, 105, 105, 0.85);
+    background-color:rgba(105, 105, 105, 0.93);
 }
 
 .popover-content span {

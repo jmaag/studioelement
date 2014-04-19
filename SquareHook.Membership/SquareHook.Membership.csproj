@@ -106,6 +106,7 @@
     <Content Include="Content\img\core_admin_small.png" />
     <Content Include="Content\img\footer.jpg" />
     <Content Include="Content\img\groups.png" />
+    <Content Include="Content\img\head-banner.jpg" />
     <Content Include="Content\img\header.jpg" />
     <Content Include="Content\img\icons2.png" />
     <Content Include="Content\img\ie-spacer.gif" />
