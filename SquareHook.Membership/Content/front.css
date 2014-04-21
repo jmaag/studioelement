@@ -455,7 +455,7 @@ button.sh-print {
 {
   header, footer {display: none;}
   
-  .sh-sidebar, button.sh-print { display: none; }
+  .sh-sidebar, button.sh-print, .hide-print { display: none; }
   
   .sh-details .level-details 
   {
@@ -464,6 +464,10 @@ button.sh-print {
       border-bottom: 1px solid #ccc;
       padding-bottom: 1em;
       margin-bottom: 1em;
+  }
+  
+  a[href]:after {
+    content:"" !important;
   }
 }
 
