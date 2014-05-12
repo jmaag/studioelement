@@ -162,6 +162,11 @@
     display: none;
 }
 
+.sh-details .sh-career-description 
+{
+    border-top: solid 1px #adadad;
+}
+
 .sh-details .levels 
 {
     display: none;

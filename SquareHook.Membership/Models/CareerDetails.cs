@@ -9,6 +9,8 @@ namespace SquareHook.Membership.Models
     {
         public int CareerID { get; set; }
 
+        public string Details { get; set; }
+
         public List<LevelDetails> Levels { get; set; }
     }
 

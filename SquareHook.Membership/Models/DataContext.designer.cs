@@ -166,6 +166,8 @@ namespace SquareHook.Membership.Models
 		
 		private string _Level5Instructions;
 		
+		private string _Description;
+		
 		private EntitySet<sh_career_certification> _sh_career_certifications;
 		
     #region Extensibility Method Definitions
@@ -192,6 +194,8 @@ namespace SquareHook.Membership.Models
     partial void OnLevel4InstructionsChanged();
     partial void OnLevel5InstructionsChanging(string value);
     partial void OnLevel5InstructionsChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
     #endregion
 		
 		public sh_career()
@@ -396,6 +400,26 @@ namespace SquareHook.Membership.Models
 					this._Level5Instructions = value;
 					this.SendPropertyChanged("Level5Instructions");
 					this.OnLevel5InstructionsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NText", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
 				}
 			}
 		}

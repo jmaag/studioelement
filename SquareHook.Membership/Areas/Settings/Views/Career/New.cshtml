@@ -60,6 +60,11 @@
                     })
                 </li>
                 <li class="input">
+                    <label for="Name">Description</label>
+                    @Html.TextAreaFor(m => m.Description, new Dictionary<string, object> { 
+                    })
+                </li>
+                <li class="input">
                     <label for="Name">Display Order</label>
                     @Html.TextBoxFor(m => m.DisplayOrder, new Dictionary<string, object> { 
                         { "placeholder", "Order" }

@@ -12,6 +12,7 @@
       <Column Name="Level3Instructions" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Level4Instructions" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Level5Instructions" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="false" UpdateCheck="Never" />
       <Association Name="sh_career_sh_career_certification" Member="sh_career_certifications" ThisKey="CareerID" OtherKey="CareerID" Type="sh_career_certification" />
     </Type>
   </Table>

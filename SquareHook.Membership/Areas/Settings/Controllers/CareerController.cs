@@ -68,7 +68,8 @@ namespace SquareHook.Membership.Areas.Settings.Controllers
                     Level2Instructions = model.Level2Instructions,
                     Level3Instructions = model.Level3Instructions,
                     Level4Instructions = model.Level4Instructions,
-                    Level5Instructions = model.Level5Instructions,
+                    Level5Instructions = model.Level5Instructions, 
+                    Description = model.Description,
                     Name = model.Name
                 };
 
@@ -110,6 +111,7 @@ namespace SquareHook.Membership.Areas.Settings.Controllers
             model.Level3Instructions = career.Level3Instructions;
             model.Level4Instructions = career.Level4Instructions;
             model.Level5Instructions = career.Level5Instructions;
+            model.Description = career.Description;
             model.Name = career.Name;
 
             model.SelectedCerts = new List<int>();
@@ -136,6 +138,7 @@ namespace SquareHook.Membership.Areas.Settings.Controllers
                 career.Level3Instructions = model.Level3Instructions;
                 career.Level4Instructions = model.Level4Instructions;
                 career.Level5Instructions = model.Level5Instructions;
+                career.Description = model.Description;
                 career.Name = model.Name;
 
                 // clear old associations of certifications and add new ones.

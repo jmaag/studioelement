@@ -30,11 +30,19 @@
     </div>
     </header>
     <div class="container">
-        <p class="hide-print">
-            Deciding to work in the IT industry is an exceptionally good choice. Getting an IT certification can help you 
-            get started and get ahead in your career. The CompTIA IT Certification Roadmap can make navigating the world 
-            of certifications a little easier.
-        </p>  
+        <div class="row hide-print">
+            <div class="col-md-9">
+                <p>Deciding to work in the IT industry is an exceptionally good choice. Getting an IT certification can help you 
+                get started and get ahead in your career. The CompTIA IT Certification Roadmap can make navigating the world 
+                of certifications a little easier.</p>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="sh-download">
+                    <img src="/Content/img/thumbnail.jpg" />
+                    <div>Download Full<br />Roadmap PDF <i class="fa fa-angle-double-down"></i></div>
+                </a>                
+            </div>
+        </div>
         
         <div class="sh-widget">
             <div class="row">
@@ -47,11 +55,6 @@
                     <a class="sh-show-more" href="#">SEE MORE...</a>
                     <hr />
                     <a class="sh-view-all" href="#">VIEW ALL CERTIFICATIONS</a>
-                    <hr />
-                    <a href="#" class="sh-download">
-                        <img src="/Content/img/thumbnail.jpg" />
-                        <div>Download Full<br />Roadmap PDF <i class="fa fa-angle-double-down"></i></div>
-                    </a>
                 </div>
                 <div class="col-md-9" id="shGoto">
                     <h3 class="sh-header-right">HELPFUL CERTIFICATIONS:</h3>                    
@@ -75,6 +78,7 @@
                             <button class="pull-right sh-print">Print</button>
                             <h2>career name</h2>
                             <div class="details">Average Salary*: USD <span class="average-salary"></span> | Current Demand: <span class="demand"></span></div>
+                            <div class="details sh-career-description">description</div>
                         </section>
                         <section class="levels"></section>
                     </div>
@@ -94,7 +98,11 @@
             <script type="text/html" id="shDetails">
                 {{#Levels}}
                 <section class="level-details {{NameClass}}">
-                    <h3{{#Instruction}} class="instruction {{#First}}active{{/First}}"{{/Instruction}} data-content="{{Instruction}}"><span class="shicon {{#First}}shicon-minus{{/First}}{{^First}}shicon-plus{{/First}}"></span> <span class="cert">{{Name}}</span> <span class="level-index">{{Index}}</span></h3>
+                    <h3{{#Instruction}} class="instruction {{#First}}active{{/First}}"{{/Instruction}} data-content="{{Instruction}}">
+                        <span class="shicon {{#First}}shicon-minus{{/First}}{{^First}}shicon-plus{{/First}}"></span> 
+                        <span class="cert">{{Name}}</span> 
+                        <!--<span class="level-index">{{Index}}</span>-->
+                    </h3>
                     <ul {{#First}}class="active"{{/First}}>
                         {{#Certifications}}
                         {{#Visible}}<li><a href="{{Url}}" target="_blank" data-title="{{Provider}}" data-content="<span>{{Title}}</span><br />{{Details}}">{{Title}}</a></li>{{/Visible}}

@@ -149,6 +149,15 @@ SquareHook.Certification = (function ($) {
         my.providers = results.providers;
         var plist = Mustache.render($("#shProviderListTemplate").html(), my);
         $(".sh-provider-list").html(plist);
+
+        if (results.results.Details == null) {
+            $(".sh-career-description").hide();
+        }
+        else {
+            $(".sh-career-description").html(results.results.Details);
+            $(".sh-career-description").show();
+        }
+
         $(".sh-provider-list input[type='checkbox']").click(my.refreshProviders);
         my.selectedProviders = my.getSelectedProviders();
 

@@ -56,10 +56,12 @@ namespace SquareHook.Membership.Controllers
 
                 // receive career
                 var career = (from c in Context.sh_careers where c.CareerID == id select c).First();
+                model.CareerID = career.CareerID;
+                model.Details = career.Description;
 
                 // retrieve certifications
                 var certs = (from c in Context.sh_certifications where c.sh_career_certifications.Any(car => car.CareerID == id) 
-                             orderby c.LevelID, c.Title.ToLower() select c).ToList();
+                             orderby c.sh_level.Order, c.Title.ToLower() select c).ToList();
                 
                 foreach (var cert in certs)
                 {
