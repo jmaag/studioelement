@@ -103,7 +103,14 @@ namespace SquareHook.Membership.Controllers
                                      Show = true
                                  }).ToList();
 
+                // reorder items by descending and the special comptia
                 providers = providers.OrderByDescending(p => p.CertificationCount).ToList();
+                var comptia = (from p in providers where p.Name.Contains("CompTIA") select p).ToList();
+                if (comptia.Count > 0)
+                {
+                    providers.Remove(comptia[0]);
+                    providers.Insert(0, comptia[0]);
+                }
 
                 for (int i = 0; i < providers.Count; i++)
                 {
