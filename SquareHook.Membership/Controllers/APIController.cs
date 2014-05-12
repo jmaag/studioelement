@@ -103,6 +103,8 @@ namespace SquareHook.Membership.Controllers
                                      Show = true
                                  }).ToList();
 
+                providers = providers.OrderBy(p => p.CertificationCount).ToList();
+
                 for (int i = 0; i < providers.Count; i++)
                 {
                     providers[i].Show = i < 5;
