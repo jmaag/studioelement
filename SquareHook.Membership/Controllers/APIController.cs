@@ -121,6 +121,14 @@ namespace SquareHook.Membership.Controllers
                 foreach (var level in model.Levels)
                 {
                     level.Instruction = getInstruction(career, ref instructionIndex);
+
+                    // resort providers with comptia above
+                    var comptias = (from c in level.Certifications where c.Provider.Contains("CompTIA") select c).ToList();
+                    foreach (var comptia2 in comptias)
+                    {
+                        level.Certifications.Remove(comptia2);
+                        level.Certifications.Insert(0, comptia2);
+                    }
                 }
 
                 return Json(new { success = true, results = model, providers = providers });
